@@ -1,16 +1,27 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', ['$scope', '$http', function($scope, $http) {
+
+  $scope.login = {email:'', senha: ''}
+  $scope.erro = "";
+
+  $scope.logar = function(){
+    $http({
+      method : "GET",
+      headers: {
+        'Accept': 'application/json; charset=utf-8',
+        'Content-Type': 'application/json; charset=utf-8'
+      },
+      url : "http://localhost:3000/administradores.json?email=" + $scope.login.email + '&senha=' + $scope.login.senha
+    }).then(function mySucces(response) {
+      alert('ok')
+    }, function myError(response){
+      $scope.erro = "Login ou senha inválido"
+    });
+  }
+}])
 
 .controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
   $scope.chats = Chats.all();
   $scope.remove = function(chat) {
     Chats.remove(chat);

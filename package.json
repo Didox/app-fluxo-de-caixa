@@ -1,7 +1,7 @@
 {
   "name": "app_fluxo_de_caixa",
   "version": "0.0.1",
-  "description": "An Ionic project",
+  "description": "Aplicativo para gerenciar fluxo de caixa",
   "devDependencies": {
     "@ionic/v1-toolkit": "^1.0.0",
     "gulp": "^3.5.6",
