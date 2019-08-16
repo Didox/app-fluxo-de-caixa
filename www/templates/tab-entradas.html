@@ -1,0 +1,45 @@
+<ion-view view-title="Entradas" cache-view="false">
+  <ion-content>
+    <ion-list>
+      <div style="padding: 40px">
+        <h4>Digite a entrada de caixa</h4>
+        <form>
+          Placa:<br>
+          <input type="placa" ng-model="entrada.placa" name="placa" placeholder="Placa">
+          <br>
+          
+          Data emissao fatura:<br>
+          <input type="date" ng-model="entrada.emissao" name="emissao" placeholder="Emissão">
+          <br>
+
+          Descrição:<br>
+          <textarea ng-model="entrada.descricao" placeholder="Descrição"></textarea>
+          <br>
+
+          Número nota:<br>
+          <input type="number" ng-model="entrada.numero" name="numero" placeholder="Número">
+          <br>
+
+          Data inicio:<br>
+          <input type="date" ng-model="entrada.data_inicio" name="data_inicio" placeholder="Data inicio">
+          <br>
+
+          Data fim:<br>
+          <input type="date" ng-model="entrada.data_fim" name="data_fim" placeholder="Data fim">
+          <br>
+
+          Vencimento:<br>
+          <input type="date" ng-model="entrada.vencimento" name="vencimento" placeholder="Vencimento">
+          <br>
+
+          Valor:<br>
+          <input type="number" ng-model="entrada.valor" name="valor" placeholder="Valor">
+          <br>
+
+          <div>{{erro}}</div>
+          <button ng-disabled="!entrada.placa" ng-click="cadastrar()">Cadastrar</button>
+        </form> 
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

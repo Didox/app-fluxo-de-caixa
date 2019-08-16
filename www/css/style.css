@@ -13,3 +13,23 @@ button{
   padding: 10px;
   min-width: 100px;
 }
+
+.title.title-left.header-item{
+  text-align: center;
+}
+
+.verde{
+  color: green;
+}
+
+.vermelho{
+  color: red;
+}
+
+textarea{
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  min-height: 60px;
+}

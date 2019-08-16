@@ -1,9 +1,9 @@
 angular.module('starter', [
   'ionic', 
   'login.controllers', 
-  'account.controllers', 
-  'chats.controllers', 
-  'dash.controllers', 
+  'saidas.controllers', 
+  'entradas.controllers', 
+  'home.controllers', 
   'starter.services'
 ])
 
@@ -35,45 +35,36 @@ angular.module('starter', [
     templateUrl: 'templates/login.html'
   })
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.home', {
+    url: '/home',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-home': {
+        templateUrl: 'templates/tab-home.html',
+        controller: 'HomeCtrl'
       }
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.entradas', {
+      url: '/entradas',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'tab-entradas': {
+          templateUrl: 'templates/tab-entradas.html',
+          controller: 'EntradasCtrl'
         }
       }
     })
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.saidas', {
+    url: '/saidas',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-saidas': {
+        templateUrl: 'templates/tab-saidas.html',
+        controller: 'SaidasCtrl'
       }
     }
   });
 
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/home');
 
 });

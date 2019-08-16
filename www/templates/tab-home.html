@@ -1,0 +1,16 @@
+<ion-view view-title="Fluxo de caixa" cache-view="false" >
+  <ion-content class="padding">
+    <div style="text-align: center;font-size: 20px;line-height: 30px">
+      <h2>Bem vindo ao aplicativo de Fluxo de caixa</h2>
+
+      <div>Total de entradas mês: <span class="verde">{{caixa.entradas}}</span></div>
+      <div>Total de saídas mês: <span class="vermelho">{{caixa.saidas}}</span></div>
+
+      <div ng-if="caixa.lucro >= 0">Lucro mês: <span class="verde">{{caixa.lucro}}</span></div>
+      <div ng-if="caixa.lucro < 0">Lucro mês: <span class="vermelho">{{caixa.lucro}}</span></div>
+      <hr>
+      <button ng-click="sair()">Sair</button>
+
+    </div>
+  </ion-content>
+</ion-view>
