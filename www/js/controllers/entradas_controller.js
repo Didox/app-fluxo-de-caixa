@@ -1,19 +1,19 @@
 angular.module('entradas.controllers', [])
 
-.controller('EntradasCtrl', ['$scope', '$http', '$state', function($scope, $state) {
+.controller('EntradasCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
   if(!localStorage.getItem("usuario_logado")){
     $state.go("login");
   }
 
   $scope.entrada = {
-  	placa: "",
-	emissao: "",
-	descricao: "",
-	numero: "",
-	data_inicio: "",
-	data_fim: "",
-	vencimento: "",
-	valor: "",
+    placa: "DOU1234",
+    data_emissao_fatura: new Date(),
+    descricao: "teste",
+    numero_fatura: 1234,
+    data_inicio: new Date(),
+    data_fim: new Date(),
+    vencimento: new Date(),
+    valor: 399,
   }
 
 
@@ -29,12 +29,12 @@ angular.module('entradas.controllers', [])
       },
       url : "http://localhost:3000/pedidos.json",
       data: {
-      	nome: ""
+      	pedido: $scope.entrada
       }
     }).then(function mySucces(response) {
-      
+      alert("Cadastrado com sucesso")
     }, function myError(response){
-      $scope.erro = "Login ou senha inválido"
+      $scope.erro = JSON.stringify(response.data);
     });
   }
   
