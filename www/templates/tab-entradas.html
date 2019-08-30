@@ -1,45 +1,60 @@
 <ion-view view-title="Entradas" cache-view="false">
   <ion-content>
-    <ion-list>
-      <div style="padding: 40px">
-        <h4>Digite a entrada de caixa</h4>
-        <form>
-          Placa:<br>
-          <input type="placa" ng-model="entrada.placa" name="placa" placeholder="Placa">
-          <br>
-          
-          Data emissao fatura:<br>
-          <input type="date" ng-model="entrada.data_emissao_fatura" name="emissao" placeholder="Emissão">
-          <br>
+    <div>{{erro}}</div>
 
-          Descrição:<br>
-          <textarea ng-model="entrada.descricao" placeholder="Descrição"></textarea>
-          <br>
+    <div ng-if="!showForm" id="listaEntradas">
+      <button ng-click="showCadastro()">CADASTRAR</button>
+      <hr>
+      <ion-list ng-repeat="entrada in entradas">
+        <div><b>Placa:</b> {{entrada.placa}}</div>
+        <div><b>Valor:</b> R$ {{entrada.valor}}</div>
+        <div><b>Número</b> fatura: {{entrada.numero_fatura}}</div>
+        <div><b>Vencimento</b> fatura: {{entrada.vencimento}}</div>
+        <button ng-click="alterar(entrada)" class="btn-alterar">Alterar</button>
+        <button ng-click="excluir(entrada)" class="btn-excluir">Excluir</button>
+        <hr>
+      </ion-list>
+    </div>
 
-          Número nota:<br>
-          <input type="number" ng-model="entrada.numero_fatura" name="numero" placeholder="Número">
-          <br>
+    <div style="padding: 40px" ng-if="showForm">
+      <a href="javascript:;" ng-click="voltar()">Voltar</a>
+      <h4>Digite a entrada de caixa</h4>
+      <form>
+        Placa:<br>
+        <input type="placa" ng-model="entrada.placa" name="placa" placeholder="Placa">
+        <br>
+        
+        Data emissao fatura:<br>
+        <input type="date" ng-model="entrada.data_emissao_fatura" name="emissao" placeholder="Emissão">
+        <br>
 
-          Data inicio:<br>
-          <input type="date" ng-model="entrada.data_inicio" name="data_inicio" placeholder="Data inicio">
-          <br>
+        Descrição:<br>
+        <textarea ng-model="entrada.descricao" placeholder="Descrição"></textarea>
+        <br>
 
-          Data fim:<br>
-          <input type="date" ng-model="entrada.data_fim" name="data_fim" placeholder="Data fim">
-          <br>
+        Número nota:<br>
+        <input type="number" ng-model="entrada.numero_fatura" name="numero" placeholder="Número">
+        <br>
 
-          Vencimento:<br>
-          <input type="date" ng-model="entrada.vencimento" name="vencimento" placeholder="Vencimento">
-          <br>
+        Data inicio:<br>
+        <input type="date" ng-model="entrada.data_inicio" name="data_inicio" placeholder="Data inicio">
+        <br>
 
-          Valor:<br>
-          <input type="number" ng-model="entrada.valor" name="valor" placeholder="Valor">
-          <br>
+        Data fim:<br>
+        <input type="date" ng-model="entrada.data_fim" name="data_fim" placeholder="Data fim">
+        <br>
 
-          <div>{{erro}}</div>
-          <button ng-disabled="!entrada.placa" ng-click="cadastrar()">Cadastrar</button>
-        </form> 
-      </div>
-    </ion-list>
+        Vencimento:<br>
+        <input type="date" ng-model="entrada.vencimento" name="vencimento" placeholder="Vencimento">
+        <br>
+
+        Valor:<br>
+        <input type="number" ng-model="entrada.valor" name="valor" placeholder="Valor">
+        <br>
+
+        <button ng-disabled="!entrada.placa" ng-click="cadastrar()">Cadastrar</button>
+      </form> 
+    </div>
+    <div>{{erro}}</div>
   </ion-content>
 </ion-view>
