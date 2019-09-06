@@ -2,7 +2,7 @@
   <ion-content>
     <div>{{erro}}</div>
 
-    <div ng-if="!showForm" id="listaEntradas">
+    <div ng-if="!showForm" id="lista">
       <button ng-click="showCadastro()">CADASTRAR</button>
       <hr>
       <ion-list ng-repeat="entrada in entradas">
@@ -10,6 +10,7 @@
         <div><b>Valor:</b> R$ {{entrada.valor}}</div>
         <div><b>Número</b> fatura: {{entrada.numero_fatura}}</div>
         <div><b>Vencimento</b> fatura: {{entrada.vencimento}}</div>
+        <button ng-click="aprovar(entrada)" ng-if="entrada.status != 1" class="btn-aprovar">Aprovar</button>
         <button ng-click="alterar(entrada)" class="btn-alterar">Alterar</button>
         <button ng-click="excluir(entrada)" class="btn-excluir">Excluir</button>
         <hr>

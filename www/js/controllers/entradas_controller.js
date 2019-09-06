@@ -6,14 +6,14 @@ angular.module('entradas.controllers', [])
   }
 
   $scope.entrada = {
-    placa: "DOU1234",
+    placa: "",
     data_emissao_fatura: new Date(),
-    descricao: "teste",
-    numero_fatura: 1234,
+    descricao: "",
+    numero_fatura: 0,
     data_inicio: new Date(),
     data_fim: new Date(),
     vencimento: new Date(),
-    valor: 399,
+    valor: 0,
   }
 
   $scope.showForm = false;
@@ -34,6 +34,35 @@ angular.module('entradas.controllers', [])
 
   $scope.voltar = function(){
     $scope.showForm = false;
+  }
+
+  $scope.aprovar = function(entrada){
+    $ionicPopup.confirm({
+      title: 'Aprovação',
+      template: "Confirma a aprovação do valor R$ " + entrada.valor + " ?",
+      cancelText: 'Cancelar',
+      okText: 'Confirmar'
+    }).then(function(res) {
+      if(res){
+        $http({
+          method : "PATCH",
+          headers: {
+            'Accept': 'application/json; charset=utf-8',
+            'Content-Type': 'application/json; charset=utf-8'
+          },
+          url : "http://localhost:3000/pedidos/" + entrada.id + ".json",
+          data: {
+            pedido:{
+              status: 1
+            }
+          }
+        }).then(function mySucces(response) {
+          $scope.lista();
+        }, function myError(response){
+          $scope.erro = JSON.stringify(response.data);
+        });
+      }
+    });
   }
 
   $scope.excluir = function(entrada){

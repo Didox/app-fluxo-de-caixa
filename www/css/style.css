@@ -1,6 +1,6 @@
 /* Empty. Add your own CSS if you like */
 
-input{
+input, select{
   border: 1px solid #ccc!important;
   border-radius: 6px;
   width: 100%;
@@ -14,21 +14,25 @@ button{
   min-width: 100px;
 }
 
-#listaEntradas{
+#lista{
   margin-top: 20px;
   text-align: center;
 }
 
-#listaEntradas .btn-excluir{
+#lista .btn-excluir{
   background-color: #941818;
   color: #fff;
 }
 
-#listaEntradas .btn-alterar{
+#lista .btn-alterar{
   background-color: #0f749a;
   color: #fff;
 }
 
+#lista .btn-aprovar{
+  background-color: #4caf54;
+  color: #fff;
+}
 
 .title.title-left.header-item{
   text-align: center;
