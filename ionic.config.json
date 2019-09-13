@@ -1,6 +1,8 @@
 {
   "name": "app_fluxo_de_caixa",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic1",
   "watchPatterns": [
     "scss/**/*",
